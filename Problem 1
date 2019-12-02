@@ -1,0 +1,17 @@
+import pandas as pd
+
+math = {'Student':['Ice Bear','Panda','Grizzly'],'Math':[80,95,79]}
+electronics = {'Student':['Ice Bear','Panda','Grizzly'],'Electronics':[85,81,83]}
+GEAS = {'Student':['Ice Bear','Panda','Grizzly'],'GEAS':[90,79,93]}
+ESAT = {'Student':['Ice Bear','Panda','Grizzly'],'ESAT':[93,89,88]}
+
+m = pd.DataFrame(math,columns=['Student','Math'])
+e = pd.DataFrame(electronics,columns=['Student','Electronics'])
+G = pd.DataFrame(GEAS,columns=['Student','GEAS'])
+E = pd.DataFrame(ESAT,columns=['Student','ESAT'])
+
+me = pd.merge(m,e, how = 'outer', on = 'Student')
+meG = pd.merge(me,G, how = 'outer', on = 'Student')
+meGE = pd.merge(meG,E, how = 'outer', on = 'Student')
+ 
+print(meGE)
